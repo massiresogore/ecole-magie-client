@@ -1,0 +1,18 @@
+<p>List de magiciens</p>
+@if(statusCode === 200){
+  @for (magicien of magiciens; track magicien.id){
+    <ul class="list-group mb-5">
+      <app-magicien-info [magicien]="magicien"
+                         (updateMagicienEvent)="updateMagicien($event)"
+                         (deleteMagicienEvent)="deleteMagicien($event)"
+                         (readMagicienEvent)="readMagicien($event)"
+      ></app-magicien-info>
+    </ul>
+  }
+} @else {
+  <p class="text-danger display-1">{{message}}</p>
+}
+
+
+<button (click)="getAny()">Click sur moi</button>
+
