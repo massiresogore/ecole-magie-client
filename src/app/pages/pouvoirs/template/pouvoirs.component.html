@@ -1,0 +1,9 @@
+<p>Liste des pouvoirs</p>
+
+@if (statusCode===200){
+  <app-pouvoirslist [pouvoirs]="pouvoirs"/>
+} @else {
+  <p class="text-danger display-1">
+    {{message}}
+  </p>
+}

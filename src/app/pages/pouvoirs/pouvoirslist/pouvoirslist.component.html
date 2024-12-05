@@ -1,0 +1,14 @@
+
+@for(pouvoir of pouvoirs; track pouvoir.id){
+  <ul class="list-group mb-5 ">
+    <li class="list-group-item">{{pouvoir.name}}</li>
+    <li class="list-group-item">{{pouvoir.description}}</li>
+    <li class="list-group-item">{{pouvoir.imageUrl}}</li>
+    <app-uibuttonblock
+      [pouvoir]="pouvoir"
+      (updatePouvoirEvent)="updatePouvoir(pouvoir)"
+      (readPouvoirEvent)="readPouvoir(pouvoir)"
+      (deletePouvoirEvent)="deletePouvoir(pouvoir)"
+    />
+  </ul>
+}

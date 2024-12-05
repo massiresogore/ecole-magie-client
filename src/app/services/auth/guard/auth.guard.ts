@@ -8,7 +8,7 @@ export const AuthGuard = ()=>{
   const authService = inject(AuthService);
 
   if(!authService.isAuthenticated()){
-    route.navigateByUrl("/login");
+    route.navigateByUrl("/login").then(r => alert("Vous n'êtes pas connecté"));
     return false;
   }
   return true;
