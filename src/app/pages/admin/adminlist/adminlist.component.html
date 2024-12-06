@@ -1,0 +1,15 @@
+<p>List des Admins</p>
+@for (user of adminData; track user.id){
+  <ul class="list-group mb-5">
+    <li class="list-group-item">{{user.username}}</li>
+    <li class="list-group-item">{{user.enable}}</li>
+    <li class="list-group-item">{{user.roles}}</li>
+    <app-uibuttonblock
+      [object]="user"
+      (createEvent)="createAdmin(user)"
+      (readEvent)="readAdmin(user)"
+      (updateEvent)="updateAdmin(user)"
+      (deleteEvent)="deleteAdmin(user)"
+    />
+  </ul>
+}

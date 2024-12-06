@@ -2,13 +2,7 @@ import {Component, inject} from '@angular/core';
 import {MagicienService} from "./magicien.service";
 import {Magicien} from "./magicien.interface";
 import {MagicienInfoComponent} from "./magicien-info/magicien-info.component";
-import {isReactive} from "@angular/core/primitives/signals";
-import {EcoleResult} from "../../services/ecoleResult";
-import {MagicienResult} from "./magicienresult";
 import {environment} from "../../../environments/environment.development";
-import {error} from "@angular/compiler-cli/src/transformers/util";
-import {log} from "node:util";
-
 @Component({
   selector: 'app-magiciens',
   standalone: true,

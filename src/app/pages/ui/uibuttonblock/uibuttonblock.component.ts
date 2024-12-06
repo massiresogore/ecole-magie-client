@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Pouvoir} from "../../pouvoirs/pouvoir.interface";
 
 @Component({
   selector: 'app-uibuttonblock',
@@ -9,26 +8,25 @@ import {Pouvoir} from "../../pouvoirs/pouvoir.interface";
   styleUrl: './uibuttonblock.component.css'
 })
 export class UibuttonblockComponent {
-  @Input() pouvoir: Pouvoir = {
-    id: -1,
-    name: "default name",
-    description: "default name",
-    imageUrl: "default name",
+  @Input() object: Object = {}
+
+  @Output() createEvent = new EventEmitter<Object>();
+  @Output() updateEvent = new EventEmitter<Object>();
+  @Output() deleteEvent = new EventEmitter<Object>();
+  @Output() readEvent = new EventEmitter<Object>();
+
+  createData(item: Object) {
+   this.updateEvent.emit(item);
+  }
+  updateData(item: Object) {
+   this.updateEvent.emit(item);
   }
 
-  @Output() updatePouvoirEvent = new EventEmitter<Pouvoir>();
-  @Output() deletePouvoirEvent = new EventEmitter<Pouvoir>();
-  @Output() readPouvoirEvent = new EventEmitter<Pouvoir>();
-
-  updatePouvoir(item: Pouvoir) {
-   this.updatePouvoirEvent.emit(item);
+  deleteData(item: Object) {
+    this.deleteEvent.emit(item);
   }
 
-  deletePouvoir(item: Pouvoir) {
-    this.deletePouvoirEvent.emit(item);
-  }
-
-  readPouvoir(item: Pouvoir) {
-    this.readPouvoirEvent.emit(item)
+  readData(item: Object) {
+    this.readEvent.emit(item)
   }
 }

@@ -5,6 +5,7 @@ import {MagiciensComponent} from "./pages/magiciens/magiciens.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {AuthGuard} from "./services/auth/guard/auth.guard";
+import {AdminComponent} from "./pages/admin/admin.component";
 export const routes: Routes = [
   {
     path: '',
@@ -12,8 +13,8 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: PouvoirsComponent,
-    canActivate: [AuthGuard],
+    component: AdminComponent,
+    //canActivate: [AuthGuard],//Désactivation temporaire pour le test
   },
   {
     path: 'login',

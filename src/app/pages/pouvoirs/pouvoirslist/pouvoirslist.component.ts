@@ -14,14 +14,17 @@ import {UibuttonblockComponent} from "../../ui/uibuttonblock/uibuttonblock.compo
 export class PouvoirslistComponent {
   @Input() pouvoirs: Pouvoir[] = []
 
+  createPouvoir(item: Pouvoir) {
+    alert("Create pouvoir id: " + item.id)
+  }
   updatePouvoir(item: Pouvoir) {
-    alert("Update id: " + item.id)
+    alert("Update pouvoir id: " + item.id)
   }
   readPouvoir(item: Pouvoir) {
-    alert("Update id: " + item.id)
+    alert("Update pouvoir id: " + item.id)
 
   }
   deletePouvoir(item: Pouvoir) {
-    alert("Delete id: " + item.id)
+    alert("Delete pouvoir id: " + item.id)
   }
 }

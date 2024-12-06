@@ -1,4 +1,3 @@
-
 export type EcoleResult = {
   code: number,
   flag:boolean,

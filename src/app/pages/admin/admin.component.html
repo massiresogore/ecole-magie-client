@@ -1,1 +1,7 @@
-<p>admin works!</p>
+@if (statusCode===200){
+<app-adminlist [adminData]="adminData"  />
+} @else {
+  <p class="text-danger display-1">
+    {{message}}
+  </p>
+}

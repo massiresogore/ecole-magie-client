@@ -12,7 +12,10 @@ export class PouvoirService {
 
   getPouvoirsData(): Promise<PouvoirResult> {
     return new Promise((resolve, reject) => {
-      fetch(environment.apiUrl+"/pouvoirs").then(res => res.json())
+      fetch(environment.apiUrl+"/pouvoirs")
+        .then(res => {
+         return res.json();
+        })
         .then(result => resolve(result))
         .then(result => reject(result))
     })

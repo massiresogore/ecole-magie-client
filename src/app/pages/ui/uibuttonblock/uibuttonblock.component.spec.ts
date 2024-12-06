@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UibuttonblockComponent } from './uibuttonblock.component';
 
 describe('UibuttonblockComponent', () => {
@@ -11,7 +10,7 @@ describe('UibuttonblockComponent', () => {
       imports: [UibuttonblockComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UibuttonblockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
