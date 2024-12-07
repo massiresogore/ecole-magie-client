@@ -17,23 +17,26 @@ export class LoginComponent {
   private router = inject(Router);
   authService:AuthService = inject(AuthService);
   isAuth = this.authService.isAuthenticated();
+  isSubmitted = false;
   formValue = {
-    name: "",
-    password: "",
+    username: new FormControl<string>('', [Validators.required, Validators.minLength(3)]),
+    password: new FormControl<string>('', [Validators.required]),
+    remember: new FormControl<boolean>(false),
   };
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username:this.formValue.username ,
+    password:this.formValue.password ,
+    remember:this.formValue.remember ,
   });
 
 
 
   handleFormSubmit(){
     this.isAuth = true;
-    this.formValue.name = this.loginForm?.value.username;
-    this.formValue.password = this.loginForm?.value.password;
+    this.isSubmitted = true;
+    if(this.loginForm.invalid) return;
+    console.log(this.loginForm.value);
     //redirige vers home
-    console.log(this.loginForm.value)
     // this.router.navigateByUrl('/').then(r => {
     //   r ? alert("Merci d'avoir remplie le formulaire") : alert("Probleme");
     // });

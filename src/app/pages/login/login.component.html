@@ -1,10 +1,32 @@
 <div class="container-fluid ">
   <form class="" action="" [formGroup]="loginForm" (ngSubmit)="handleFormSubmit()">
+    <h1 class="fw-normal">Connexion</h1>
     <div class="form-group">
       <label for="username">Username<input class="form-control" formControlName="username" type="text" id="username" name="username"></label>
+      @if (isSubmitted && loginForm.invalid){
+        @if (formValue.username.hasError("required")){
+          <span class="alert alert-danger">Username requis</span>
+        } @else if (formValue.username.hasError('minLength')){
+          <span class="alert alert-danger">Username requis</span>
+          <span>
+                        Vous avez mis {{ formValue.username.getError('minlength').actualLength }} caractères,
+                        il faut {{ formValue.username.getError('minlength').requiredLength }} caractères
+                        </span>
+        }
+
+      }
     </div>
     <div class="form-group">
       <label for="password">Passord<input  class="form-control" formControlName="password" type="password" id="password" name="password"></label>
+      @if (isSubmitted && loginForm.invalid){
+        @if (formValue.password.hasError("required")){
+          <span class="alert alert-danger">Password requis</span>
+        }
+      }
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" formControlName="remember" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button class="btn btn-primary mt-2" >Valider</button>
   </form>
@@ -12,7 +34,7 @@
   <p>Vous avez écrit</p>
   <ul>
     {{isAuth}}
-    <li>Username: {{isAuth ?formValue.name: "" }}</li>
-    <li>password: {{isAuth ?formValue.password: "" }}</li>
+    <li>Username: {{isSubmitted ?loginForm.value.username: "" }}</li>
+    <li>password: {{isSubmitted ?loginForm.value.password: "" }}</li>
   </ul>
 </div>
